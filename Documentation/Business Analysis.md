@@ -439,6 +439,8 @@ JOIN amazon_data_db.gold.fact_sellers AS f USING ("seller_id");
 ---
 
 ## 2. Top Sellers
+<img width="650" height="391" alt="Screenshot 2025-12-11 at 7 09 50 AM" src="https://github.com/user-attachments/assets/14e89b92-6832-4547-84d7-49f3ee63a883" />
+
 
 This table ranks sellers in two different ways:
 
@@ -548,10 +550,12 @@ WITH all_sellers AS (
       *
   FROM final_calculation;
   ```
+<img width="1197" height="466" alt="Screenshot 2025-12-11 at 7 11 39 AM" src="https://github.com/user-attachments/assets/52a5215e-47da-4c58-b646-06e60fbf3aa1" />
 
   ---
 
 # Discount Strategy (Discount Suggestion)
+<img width="677" height="436" alt="Screenshot 2025-12-11 at 6 45 58 AM" src="https://github.com/user-attachments/assets/eb3724de-e0ed-4c28-89b8-97e3e7d867f4" />
 
 This table recommends a **discount percentage per product** by combining:
 
