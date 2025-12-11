@@ -20,7 +20,7 @@ To support real retail analytics, the project requires enriched product & seller
 
 Some Keep Endpoints used to extract relevant data are:
 
-1. **[Category Lookup](https://keepa.com/#!discuss/t/category-lookup/113): **
+1. [Category Lookup](https://keepa.com/#!discuss/t/category-lookup/113):
 
    Used to extract category IDs and names for downstream filtering.
 
@@ -35,15 +35,15 @@ Some Keep Endpoints used to extract relevant data are:
 
    ---
 
-2. **[Product Finder](https://keepa.com/#!discuss/t/product-finder/5473): **
+2. [Product Finder](https://keepa.com/#!discuss/t/product-finder/5473):
 
-   To Extract All the Products ASINS Within each of extracted Categories**
+   To Extract All the Products ASINS Within each of extracted Categories
 
    - **Output:** CSV with ASIN and category_id
 
    ---
 
-3. **[Products](https://keepa.com/#!discuss/t/products/110) ednpoint: **
+3. [Products](https://keepa.com/#!discuss/t/products/110) ednpoint:
 
    Extracts full product objects including:
 
@@ -83,7 +83,7 @@ Some Keep Endpoints used to extract relevant data are:
 
    ---
 
-4. **[Seller Object](https://keepa.com/#!discuss/t/seller-object/791): **
+4. [Seller Object](https://keepa.com/#!discuss/t/seller-object/791):
 
    Captures all seller-related information for sellers appearing in product offers.
 
@@ -727,6 +727,7 @@ JOIN amazon_buyBox_winner AS bb USING("product_id");
 
 
 # 
+
 
 
 
