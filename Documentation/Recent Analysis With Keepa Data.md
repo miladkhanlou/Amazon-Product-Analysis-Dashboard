@@ -96,11 +96,12 @@ Some Keep Endpoints used to extract relevant data are:
 
 **Example of Product JSON Response - [product object](https://discuss.keepa.com/t/product-object/116)**
 
-![Screenshot 2025-12-10 at 5.57.26 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 5.57.26 PM.png)
+<img width="848" height="529" alt="Screenshot 2025-12-10 at 5 57 26 PM" src="https://github.com/user-attachments/assets/01af1ff3-1469-44b6-b109-0f6eeb5ab667" />
+
 
 **Example of Seller JSON Response - [Seller Information](https://keepa.com/#!discuss/t/seller-information/790)**
+<img width="848" height="552" alt="Screenshot 2025-12-10 at 6 04 06 PM" src="https://github.com/user-attachments/assets/4a4619c8-e96c-4793-83e8-0123a0403f3d" />
 
-![Screenshot 2025-12-10 at 6.04.06 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.04.06 PM.png)
 
 ---
 
@@ -124,8 +125,7 @@ Raw JSON is not directly usable → transformation is required.
 - Offers
 - Ratings
 - Historical stats
-
-![Screenshot 2025-12-10 at 6.09.52 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.09.52 PM.png)
+<img width="966" height="206" alt="Screenshot 2025-12-10 at 6 09 52 PM" src="https://github.com/user-attachments/assets/64e8514c-4437-4aa7-9bf2-1ac8420f71b1" />
 
 ---
 
@@ -139,8 +139,8 @@ A dedicated Snowflake environment was created for the Medallion Architecture. Cr
   - **Bronze** → raw transformed CSVs
   - **Silver** → cleaned and standardized
   - **Gold** → dimension, fact, and analytical views
+<img width="854" height="453" alt="Screenshot 2025-12-10 at 2 20 31 PM" src="https://github.com/user-attachments/assets/a494ab40-76e5-4af2-90f8-7db125c053e2" />
 
-![Screenshot 2025-12-10 at 2.20.31 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 2.20.31 PM.png)
 
 ---
 
@@ -148,11 +148,12 @@ A dedicated Snowflake environment was created for the Medallion Architecture. Cr
 
 The Bronze Layer contains **all transformed CSV files**, loaded directly into Snowflake.
 
-![Screenshot 2025-12-10 at 5.17.55 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 5.17.55 PM.png)
+<img width="765" height="395" alt="Screenshot 2025-12-10 at 5 17 55 PM" src="https://github.com/user-attachments/assets/37080c8e-5803-42a5-b758-d3ef0203b87e" />
+
 
 **Example dataset: `static.csv` loaded into Bronze.**
+<img width="1091" height="357" alt="Screenshot 2025-12-10 at 6 15 51 PM" src="https://github.com/user-attachments/assets/b3c896ff-ce3c-4b48-b8d1-fedc4df96d01" />
 
-![Screenshot 2025-12-10 at 6.15.51 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.15.51 PM.png)
 
 ---
 
@@ -195,20 +196,19 @@ The Silver Layer converts raw transformed data into **trustworthy, validated, an
 The result is a clean analytical foundation, ready for modeling in the Gold Layer.
 
 **Screenshot bellow shows the cleaned tables within the silver layer Schema:**
+<img width="766" height="371" alt="Screenshot 2025-12-10 at 6 21 12 PM" src="https://github.com/user-attachments/assets/3539eba0-2486-4f8c-9b77-86a6f7b1999e" />
 
-![Screenshot 2025-12-10 at 6.21.12 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.21.12 PM.png)
+
 
 **Example of Transformed `static.csv` within Silver Layer:**
+<img width="1361" height="348" alt="Screenshot 2025-12-10 at 6 20 03 PM" src="https://github.com/user-attachments/assets/03124496-677c-4071-aa9b-9faf2657cb9a" />
 
-![Screenshot 2025-12-10 at 6.20.03 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.20.03 PM.png)
 
 **Example data cleaning queries on `seller_data`:**
-
-![Screenshot 2025-12-10 at 6.26.06 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.26.06 PM.png)
+<img width="852" height="427" alt="Screenshot 2025-12-10 at 6 26 06 PM" src="https://github.com/user-attachments/assets/8bcc16b6-c1a6-44fa-9cdb-df44885ff66b" />
 
 **Example data cleaning queries on `buy_box_winner`:**
-
-![Screenshot 2025-12-10 at 6.28.37 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.28.37 PM.png)
+<img width="1035" height="370" alt="Screenshot 2025-12-10 at 6 28 37 PM" src="https://github.com/user-attachments/assets/51ff934c-b50a-4d39-bc92-3d0795269743" />
 
 ---
 
@@ -320,10 +320,8 @@ JOIN final_cat_id AS c2 ON c2."category_name" = c."parent_category"
 ORDER BY c2."category_id" ASC;
 SELECT * FROM amazon_data_db.gold.dim_category ORDER BY "parent_category_id";
 ```
-
-![Screenshot 2025-12-10 at 6.52.32 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.52.32 PM.png)
-
-![Screenshot 2025-12-10 at 6.51.51 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 6.51.51 PM.png)
+<img width="811" height="172" alt="Screenshot 2025-12-10 at 6 52 32 PM" src="https://github.com/user-attachments/assets/de6b42f5-1a75-4949-a135-32237a27da45" />
+<img width="811" height="415" alt="Screenshot 2025-12-10 at 6 51 51 PM" src="https://github.com/user-attachments/assets/52abe5bd-f795-4d27-9d38-4ef7ef5e95ff" />
 
 ---
 
@@ -340,8 +338,7 @@ SELECT
 FROM distinct_brands;
 SELECT * FROM amazon_data_db.gold.dim_brand;
 ```
-
-![Screenshot 2025-12-10 at 7.03.52 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 7.03.52 PM.png)
+<img width="304" height="297" alt="Screenshot 2025-12-10 at 7 03 52 PM" src="https://github.com/user-attachments/assets/63da46ed-efd1-49d7-a156-42e0b13f163b" />
 
 ---
 
@@ -357,8 +354,7 @@ INSERT INTO amazon_data_db.gold.dim_best_seller VALUES
     (2, 'buyBox_seller'),
     (3, 'None');
 ```
-
-![Screenshot 2025-12-10 at 7.05.56 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 7.05.56 PM.png)
+<img width="304" height="193" alt="Screenshot 2025-12-10 at 7 05 56 PM" src="https://github.com/user-attachments/assets/da0d92f0-74de-43fc-a17c-87a7ced63f52" />
 
 ---
 
@@ -518,8 +514,7 @@ JOIN amazon_data_db.gold.dim_products AS p USING("asin")
 ```
 
 **Output Fact table For `product_id = 1` :**
-
-![Screenshot 2025-12-10 at 9.23.05 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 9.23.05 PM.png)
+<img width="861" height="274" alt="Screenshot 2025-12-10 at 9 23 05 PM" src="https://github.com/user-attachments/assets/4c3275d5-63b1-481b-8d45-a818b3ddfdb1" />
 
 ---
 
@@ -555,7 +550,8 @@ Historical datasets support time-series trends, forecasting, feature engineering
    - Identify trends
    - Feed ML models
 
-   ![Screenshot 2025-12-10 at 11.05.37 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.05.37 PM.png)![Screenshot 2025-12-10 at 11.16.03 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.16.03 PM.png)
+<img width="460" height="538" alt="Screenshot 2025-12-10 at 11 05 37 PM" src="https://github.com/user-attachments/assets/ede94d60-f1f8-46c8-b28a-cef1b506460c" /> <img width="305" height="696" alt="Screenshot 2025-12-10 at 11 16 03 PM" src="https://github.com/user-attachments/assets/2e5fc0af-80bb-4e31-8865-1d46e319367a" />
+
 
    ---
 
@@ -574,9 +570,7 @@ Historical datasets support time-series trends, forecasting, feature engineering
       - Offer counts
       - Competitor signals
 
-   ![Screenshot 2025-12-10 at 11.07.52 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.07.52 PM.png) ![Screenshot 2025-12-10 at 11.16.03 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.16.03 PM.png)
-
-   
+<img width="452" height="538" alt="Screenshot 2025-12-10 at 11 07 52 PM" src="https://github.com/user-attachments/assets/894d64bd-6a03-45b7-afba-632d13d78c8f" /> <img width="305" height="696" alt="Screenshot 2025-12-10 at 11 16 03 PM" src="https://github.com/user-attachments/assets/6a4a2f29-40d4-429e-94a2-c86dde64ab92" />
 
    ---
 
@@ -590,8 +584,8 @@ Historical datasets support time-series trends, forecasting, feature engineering
    - Offers per condition
 
    Supports BuyBox prediction and competition analysis.
+<img width="922" height="538" alt="Screenshot 2025-12-10 at 11 06 22 PM" src="https://github.com/user-attachments/assets/01e87c11-4295-40de-92c8-8fe1c68ff1ea" />
 
-   ![Screenshot 2025-12-10 at 11.06.22 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.06.22 PM.png)
 
    ---
 
@@ -606,8 +600,8 @@ Historical datasets support time-series trends, forecasting, feature engineering
 
    - Designing discount strategies
    - Predicting sales lift during promotions
+<img width="441" height="538" alt="Screenshot 2025-12-10 at 11 07 07 PM" src="https://github.com/user-attachments/assets/a2b702bb-ac14-4584-922d-25530a738fec" />
 
-   ![Screenshot 2025-12-10 at 11.07.07 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.07.07 PM.png)
 
    ---
 
@@ -623,8 +617,8 @@ Historical datasets support time-series trends, forecasting, feature engineering
       - Price competition
       - Seller reliability
       - Offer volatility
+<img width="922" height="538" alt="Screenshot 2025-12-10 at 11 08 41 PM" src="https://github.com/user-attachments/assets/c2a9b3d7-c4d8-4426-8d8b-9a3b96d64c02" />
 
-   ![Screenshot 2025-12-10 at 11.08.41 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.08.41 PM.png)
 
    ---
 
@@ -634,8 +628,8 @@ Historical datasets support time-series trends, forecasting, feature engineering
 
    1. Feature engineering
    2. Simple trend modeling
+<img width="368" height="538" alt="Screenshot 2025-12-10 at 11 09 45 PM" src="https://github.com/user-attachments/assets/4e5840b8-10f6-413c-a15e-367f5d1ebd32" />
 
-   ![Screenshot 2025-12-10 at 11.09.45 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.09.45 PM.png)
 
    ---
 
@@ -648,14 +642,13 @@ Historical datasets support time-series trends, forecasting, feature engineering
    - Seasonal trend analysis
    - Sales forecasting
    - Revenue modeling
-
-   ![Screenshot 2025-12-10 at 11.10.33 PM](/Users/milad/Desktop/Documentation/Screenshot 2025-12-10 at 11.10.33 PM.png)
+<img width="333" height="538" alt="Screenshot 2025-12-10 at 11 10 33 PM" src="https://github.com/user-attachments/assets/5106d36e-e052-4970-94ce-56729b97c8f8" />
 
 ---
 
 ## 3. Business Analysis
 
-## 1. Price Comparison
+### 3.1. Price Comparison
 
 Query information:
 
@@ -734,6 +727,7 @@ JOIN amazon_buyBox_winner AS bb USING("product_id");
 
 
 # 
+
 
 
 
