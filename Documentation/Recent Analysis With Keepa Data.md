@@ -207,8 +207,8 @@ The result is a clean analytical foundation, ready for modeling in the Gold Laye
 **Example data cleaning queries on `seller_data`:**
 <img width="852" height="427" alt="Screenshot 2025-12-10 at 6 26 06 PM" src="https://github.com/user-attachments/assets/8bcc16b6-c1a6-44fa-9cdb-df44885ff66b" />
 
-**Example data cleaning queries on `buy_box_winner`:**
-<img width="1035" height="370" alt="Screenshot 2025-12-10 at 6 28 37 PM" src="https://github.com/user-attachments/assets/51ff934c-b50a-4d39-bc92-3d0795269743" />
+**Example data cleaning queries on `historical_data`:**
+<img width="997" height="386" alt="Screenshot 2025-12-11 at 1 20 34 AM" src="https://github.com/user-attachments/assets/e5b15477-0031-4f50-bf53-b9d696dfe474" />
 
 ---
 
@@ -727,6 +727,7 @@ JOIN amazon_buyBox_winner AS bb USING("product_id");
 
 
 # 
+
 
 
 
