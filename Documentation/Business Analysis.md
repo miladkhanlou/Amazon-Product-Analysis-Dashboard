@@ -248,7 +248,8 @@ ORDER BY "month";
 ---
 
 ## 4. Top-Selling Products – Pareto (80/20) Revenue View
-<img width="486" height="400" alt="Screenshot 2025-12-11 at 6 54 23 AM" src="https://github.com/user-attachments/assets/b40e80e1-f01b-446c-9495-86cc58da9623" />
+<img width="399" height="233" alt="Screenshot 2025-12-11 at 6 52 47 AM" src="https://github.com/user-attachments/assets/17b5c6bd-b05b-41e6-89cf-89a8fa8302d5" />
+<img width="792" height="394" alt="Screenshot 2025-12-11 at 7 01 38 AM" src="https://github.com/user-attachments/assets/14f58ec3-8145-42ba-8bf8-e7234ef49a00" />
 
 
 This view identifies the **top-selling products** based on **recent month sales and revenue**, and applies a **Pareto (80/20) classification**. 
