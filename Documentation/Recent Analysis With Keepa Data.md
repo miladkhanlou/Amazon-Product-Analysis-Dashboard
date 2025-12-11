@@ -1,4 +1,4 @@
-## **1. Introduction**
+# **1. Introduction**
 
 In this project, I implemented of full ETL Pipeline, that demonstrates
 
@@ -14,7 +14,7 @@ In this project, I implemented of full ETL Pipeline, that demonstrates
 
 ---
 
-## **2. Keepa API Endpoints Used**
+# **2. Keepa API Endpoints Used**
 
 To support real retail analytics, the project requires enriched product & seller data. This is achieved by extracting multiple data types from different Keepa endpoints.
 
@@ -105,7 +105,7 @@ Some Keep Endpoints used to extract relevant data are:
 
 ---
 
-## 3) Data transformation:
+# 3) Data transformation:
 
 Raw JSON is not directly usable → transformation is required.
 
@@ -129,7 +129,7 @@ Raw JSON is not directly usable → transformation is required.
 
 ---
 
-## **4. Snowflake Setup (Warehouse, Database, Schemas)**
+# **4. Snowflake Setup (Warehouse, Database, Schemas)**
 
 A dedicated Snowflake environment was created for the Medallion Architecture. Created objects listed bellow:
 
@@ -144,7 +144,7 @@ A dedicated Snowflake environment was created for the Medallion Architecture. Cr
 
 ---
 
-## **5. Bronze Layer**
+# **5. Bronze Layer**
 
 The Bronze Layer contains **all transformed CSV files**, loaded directly into Snowflake.
 
@@ -157,7 +157,7 @@ The Bronze Layer contains **all transformed CSV files**, loaded directly into Sn
 
 ---
 
-## 6. Silver Layer, Cleaning & Standardization
+# 6. Silver Layer, Cleaning & Standardization
 
 The Silver Layer converts raw transformed data into **trustworthy, validated, and analysis-ready tables**.
 
@@ -212,7 +212,7 @@ The result is a clean analytical foundation, ready for modeling in the Gold Laye
 
 ---
 
-## 6. Gold Layer, Dimensions & Facts
+# 7. Gold Layer, Dimensions & Facts
 
 Once the Silver tables were fully cleaned, the Gold Layer was built to support BI queries and advanced analytics.
 
@@ -646,9 +646,9 @@ Historical datasets support time-series trends, forecasting, feature engineering
 
 ---
 
-## 3. Business Analysis
+# 8. Business Analysis
 
-### 3.1. Price Comparison
+### 8.1. Price Comparison
 
 Query information:
 
@@ -727,6 +727,7 @@ JOIN amazon_buyBox_winner AS bb USING("product_id");
 
 
 # 
+
 
 
 
