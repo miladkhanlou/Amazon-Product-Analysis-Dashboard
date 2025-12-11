@@ -161,33 +161,33 @@ The Bronze Layer contains **all transformed CSV files**, loaded directly into Sn
 
 The Silver Layer converts raw transformed data into **trustworthy, validated, and analysis-ready tables**.
 
-### **Key Cleaning Operations**
+### Key Cleaning Operations
 
-- ### **A. Handling Nulls and Duplicates**
+- ### A. Handling Nulls and Duplicates**
 
   - Drop or impute invalid/null fields
   - Use ranking to retain only the most recent or highest-priority record
   - Ensure **one row** per **seller**/**product** when appropriate
 
-### **B. Schema & Naming Standardization**
+### B. Schema & Naming Standardization
 
 - Standardize column names
 - Remove unused or duplicated columns
 - Define clear table grain (row meaning)
 
-### **C. Data Type Normalization**
+### C. Data Type Normalization
 
 - Convert prices, ratings, review counts into numerics
 - Convert timestamps into proper date formats
 - Normalize boolean strings into 0/1
 
-### **D. Business Rule Corrections**
+### D. Business Rule Corrections
 
 - Replace **negative** values with **zero**
 - Cap `discount%` within logical bounds (0–100%)
 - Fix malformed or missing fields
 
-### **E. Text Normalization**
+### E. Text Normalization
 
 - Trimmed whitespace
 - Lowercase/uppercase standardization
@@ -236,11 +236,11 @@ Once the Silver tables were fully cleaned, the Gold Layer was built to support B
 
 ---
 
-### **1. Dimension Layer (Business Entities)**
+### 1. Dimension Layer (Business Entities)
 
 The Gold Layer includes several dimensions that standardize business attributes for filtering, drill-downs, and grouping.
 
-### **Key Dimensions**
+### Key Dimensions
 
 | Dimension                | Purpose                              |
 | ------------------------ | ------------------------------------ |
@@ -362,7 +362,7 @@ INSERT INTO amazon_data_db.gold.dim_best_seller VALUES
 
 ### 1) Static Fact Tables:
 
-1. ### **`fact_product`: **
+1. ### `fact_product`:
 
    Central fact table containing the latest product information:
 
@@ -390,7 +390,7 @@ INSERT INTO amazon_data_db.gold.dim_best_seller VALUES
 
 ---
 
-2. ### **`fact_buybox`: **
+2. ### `fact_buybox`:
 
 Contains BuyBox winner information -  buybox winner can be Amazon or Merchant:
 
@@ -422,7 +422,7 @@ Contains BuyBox winner information -  buybox winner can be Amazon or Merchant:
 
 ---
 
-3. ### **`fact_sellers`: **
+3. ### `fact_sellers`:
 
 Seller performance snapshot:
 
@@ -452,7 +452,7 @@ Seller performance snapshot:
 
 ---
 
-4. ### **`fact_seller_profile` : **
+4. ### `fact_seller_profile` :
 
 Have information regarding Products within each brand that each seller sells. (Each seller can sell multiple brands.)
 
@@ -482,7 +482,7 @@ Have information regarding Products within each brand that each seller sells. (E
 
 ---
 
-5. ### **`fact_product_category`**
+5. ### `fact_product_category`
 
    Maps each product to its hierarchical category levels.
 
@@ -518,7 +518,7 @@ JOIN amazon_data_db.gold.dim_products AS p USING("asin")
 
 ---
 
-### 2) **Historical fact data:** 
+### 2) Historical fact data:
 
 Historical datasets support time-series trends, forecasting, feature engineering, and long-term behavioral analysis.
 
@@ -539,7 +539,7 @@ Historical datasets support time-series trends, forecasting, feature engineering
 
    ---
 
-### **Table Deffinitions:**
+### Table Deffinitions:
 
 1. **`fact_avg_stats`**
 
@@ -727,6 +727,7 @@ JOIN amazon_buyBox_winner AS bb USING("product_id");
 
 
 # 
+
 
 
 
