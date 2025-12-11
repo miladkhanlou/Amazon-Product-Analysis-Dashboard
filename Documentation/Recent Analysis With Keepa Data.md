@@ -163,7 +163,7 @@ The Silver Layer converts raw transformed data into **trustworthy, validated, an
 
 ### Key Cleaning Operations
 
-- ### A. Handling Nulls and Duplicates**
+- ### A. Handling Nulls and Duplicates
 
   - Drop or impute invalid/null fields
   - Use ranking to retain only the most recent or highest-priority record
@@ -727,6 +727,7 @@ JOIN amazon_buyBox_winner AS bb USING("product_id");
 
 
 # 
+
 
 
 
