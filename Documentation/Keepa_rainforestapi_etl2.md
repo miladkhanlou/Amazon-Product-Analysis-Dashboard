@@ -481,7 +481,7 @@ CREATE OR REPLACE VIEW amazon_data_db.silver.seller_data AS
 
 ## `offers` (Amazon seller_id fill)
 
-```
+```sql
 CREATE OR REPLACE TABLE amazon_data_db.silver.offers AS
     -- CTE 1: Get Amazon Seller_ID from seller_data
     WITH amazon_seller AS (
