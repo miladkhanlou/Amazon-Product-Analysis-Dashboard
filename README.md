@@ -336,74 +336,159 @@ This project uses **two complementary data sources** to build a complete and rel
 
 # Data Modeling
 
-### 1. Fact Tables
+- ## Gold Layer – Fact Tables
 
-1. `fact_product`
-   - Central fact table containing **product-level performance metrics**
-   - Stores sales, revenue, pricing, rating signals, and time-based measures
-   - Connects to all dimensions using IDs
-   - Drives **all KPIs and core visuals**
+  ### `gold.fact_product`
 
-### `dim_product`
+  - Main **product performance** fact table (sales, revenue-related metrics, rating metrics, ranks)
+  - Includes **sales rank** and **rating rank** used in product-level dashboards
 
-- Stores product identifiers and descriptive attributes
-- Used to display product names and group metrics by product
+  ### `gold.fact_product_category`
 
-------
+  - Bridge table mapping each product to its **category levels**
+  - Supports category drill-down and leaf-category analysis
 
-### `dim_provider` (Seller / Fulfillment)
+  ### `gold.fact_offers`
 
-- Unified seller and fulfillment reference
-- Used for:
-  - Amazon vs third-party analysis
-  - Seller-level filtering and comparison
+  - Offer-level fact table for **all seller offers per product**
+  - Used for seller comparisons, pricing competition, condition-based offer analysis
 
-------
+  ### `gold.fact_buybox_products` (VIEW)
 
-### `dim_category`
+  - Buy Box snapshot fact view per product
+  - Includes buy box winner attributes (price, Prime, FBA, condition, availability) with IDs for filtering
 
-- Stores category hierarchy data
-- Used to build **multi-level category drill-downs** in Power BI
-- Not a flat dimension due to parent–child relationships
+  ### `gold.fact_sellers`
 
-------
+  - Seller-level performance fact table
+  - Includes seller metrics like selling count, rating counts, positivity signals, and seller type flags
 
-### `dim_prime`
+  ------
 
-- Identifies Prime eligibility
-- Enables Prime vs non-Prime comparisons across visuals
+  ## Gold Layer – Historical Fact Tables
 
-------
+  ### `gold.fact_historical_data`
 
-### `dim_condition`
+  - Long-form historical time series per product (date, type, value)
+  - Used for trends like price history, sales rank history, and other Keepa-style historical tracking
 
-- Describes product condition (new, used, etc.)
-- Used for pricing and rating analysis by condition
+  ### `gold.fact_avg_stats`
 
-------
+  - Pre-calculated rolling/average statistics per product by window (avg, 30/90/180/365)
+  - Supports smoothed trend reporting and benchmark comparisons
 
-### `dim_rating_range`
+  ### `gold.fact_offer_history`
 
-- Groups products into rating buckets
-- Supports quality-based filtering and segmentation
+  - Historical offer tracking per product and seller over time
+  - Used for understanding offer price changes and seller behavior trends
 
-------
+  ### `gold.fact_buy_box_history`
 
-### `dim_price_range`
+  - Buy Box winner history (which seller owned the Buy Box over time)
+  - Supports churn / stability analysis of Buy Box ownership
 
-- Categorizes products into price tiers
-- Used for price-based analysis and comparisons
+  ### `gold.fact_coupon_history`
 
-------
+  - Coupon/discount history per product over time
+  - Used for promotion and pricing strategy analysis
 
-### `dim_stock_availability`
+  ### `gold.fact_monthly_sold`
 
-- Indicates product availability status
-- Used to analyze sales and revenue impact of availability
+  - Monthly sales volume history per product
+  - Supports year/month sales trend visuals (like your 2025 monthly sales chart)
 
-------
+  ------
 
-## 
+  ## Gold Layer – Dimension Tables
+
+  ### `gold.dim_products`
+
+  - Product lookup dimension (ASIN → product_id)
+  - Used to connect all facts consistently to product identity
+
+  ### `gold.dim_brand`
+
+  - Brand lookup dimension
+  - Supports brand-level grouping and filtering
+
+  ### `gold.dim_sellers`
+
+  - Seller lookup dimension (seller_id + seller name + seller PID)
+  - Includes added seller identity coverage (e.g., Amazon Resale entry)
+
+  ### `gold.dim_condition`
+
+  - Condition lookup dimension (new/used/etc.)
+  - Used in offer-level and buy box analysis
+
+  ### `gold.dim_category`
+
+  - Category hierarchy dimension (category_id + parent_category_id relationships)
+  - Supports multi-level category drill-down in Power BI
+
+  ### `gold.dim_buy_box_availability`
+
+  - Availability label dimension (in stock / out of stock / other)
+  - Used to standardize stock status filtering in buy box visuals
+
+  ## Gold Layer – Lookup Dimensions (Buckets / Flags)
+
+  ### `gold.dim_price_ranges`
+
+  - Standard price tier buckets (under 100, 100–200, …)
+  - Used for price segmentation and filtering
+
+  ### `gold.dim_rating_buckets`
+
+  - Standard rating tiers (4.5+, 4.0–4.5, 3–4, under 3, unrated)
+  - Used for quality segmentation and filtering
+
+  ### `gold.dim_months`
+
+  - Month lookup (month_id → month name)
+  - Used for time-based visuals and readable month labeling
+
+  ### `gold.dim_fba`
+
+  - Fulfillment bucket dimension (FBA vs Merchant)
+  - Used for fulfillment analysis slicers/segmenting
+
+  ### `gold.dim_prime`
+
+  - Prime flag dimension (Prime vs Non-Prime)
+  - Used for Prime comparisons across dashboards
+
+  ### `gold.dim_is_new`
+
+  - New vs Used/Refurbished flag dimension
+  - Used to segment offer/buy box behavior by newness
+
+  ### `gold.dim_seller_type`
+
+  - Seller type bucket (Amazon vs 3rd party)
+  - Used to separate Amazon retail behavior from marketplace sellers
+
+  ### `gold.dim_historical_types`
+
+  - Historical metric type dictionary (type_id → metric name)
+  - Used to interpret `fact_historical_data` time-series values
+
+  ### `gold.dim_sale_comparison`
+
+  - Sales trend classification (Increasing/Decreasing/Stable/No Data)
+  - Used for trend labeling and comparison visuals
+
+  ### `gold.dim_best_price_black_friday`
+
+  - Best price type classification (Amazon price, Buy Box new, New price, List price, etc.)
+  - Used for “best deal” / promo analysis
+
+  ### `gold.dim_discount_level`
+
+  - Discount intensity bucket (No discount, Small, Medium, Aggressive, Clearance)
+  - Used for discount strategy segmentation
+
+
 
 ----
 
@@ -417,25 +502,46 @@ This project uses **two complementary data sources** to build a complete and rel
 - Filters are connected to reporting visuals through **ID-based relationships**
 - Changing any filter updates **all visuals and KPIs consistently**
 - Filters allow users to segment data by:
-  - Product attributes
-  - Seller characteristics
+  - **Categories:** Category filtering uses a **hierarchical structure** instead of a flat dimension
+    - Category selections cascade across **all hierarchy levels**
+  - Seller characteristics (FBA, FBM)
   - Prime eligibility
   - Condition and availability
   - Price and rating ranges
 
-Main Filters:
 
-1. Categories: Category filtering uses a **hierarchical structure** instead of a flat dimension
-   1. Categories Dimention 
-
-- Category filtering uses a **hierarchical structure** instead of a flat dimension
-- Category selections cascade across **all hierarchy levels**
-- Filters are designed to:
-  - Narrow analysis scope
-  - Compare segments
-  - Validate KPI changes in real time
 
 ## 2. Products Tab
+
+#### 1. **Top 10 Best Rated Sellers (Composite Score)**
+
+**Seller Ranking – Methodology**
+
+- Sellers are ranked using a **composite performance score**, not a single metric
+- The goal is to measure **seller reliability**, not just popularity or volume
+
+**How the Seller Ranking Is Calculated**: The ranking score is built by combining multiple seller performance signals:
+
+- **Seller Rating Quality + Rating Volume**
+
+  - Higher average ratings contribute more to the score
+  - Reflects overall customer satisfaction
+
+  - Sellers with more reviews are weighted higher
+  - Prevents sellers with very few ratings from ranking unfairly high
+
+- **Sales Activity**
+
+  - Incorporates sales-related signals to represent real marketplace presence
+  - Ensures inactive or low-impact sellers are not over-ranked
+
+- **Each component is weighted so that:**
+
+  - High ratings alone are not enough
+
+  - High volume alone is not enough
+
+  - Strong performance requires **both quality and consistency**
 
 ## 3. Sellers Tab
 
