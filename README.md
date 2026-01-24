@@ -1,12 +1,12 @@
-# Link to Popwer BI Dashboard for this project:
-[PowerBi Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMWY3Zjc4MWEtZTRhZC00NDJjLTljZjktMDU5ZjE5MjRhMDliIiwidCI6ImM3Y2EzYjc2LWVkYmUtNGYyNi1iZTljLTgzOWM2MjQ5ZDZiYiJ9&pageName=8b6051beb05050706ed7)
----
+# [Amazon Product, Seller and Price Analysis Pipeline](https://app.powerbi.com/view?r=eyJrIjoiMWY3Zjc4MWEtZTRhZC00NDJjLTljZjktMDU5ZjE5MjRhMDliIiwidCI6ImM3Y2EzYjc2LWVkYmUtNGYyNi1iZTljLTgzOWM2MjQ5ZDZiYiJ9&pageName=8b6051beb05050706ed7)
+
 # Project Overview:
-1. Data Extraction Strategy (Keepa & Rainforest)
-2. Transform Raw JSON files & Load to snowflake Bronze Layer Schema
-3. Data Cleaning – Key Issues (Silver Layer clean up)
-4. Data Modeling
-5. Power BI Dashboard Overview
+1. [Link to Popwer BI Dashboard for this project](https://app.powerbi.com/view?r=eyJrIjoiMWY3Zjc4MWEtZTRhZC00NDJjLTljZjktMDU5ZjE5MjRhMDliIiwidCI6ImM3Y2EzYjc2LWVkYmUtNGYyNi1iZTljLTgzOWM2MjQ5ZDZiYiJ9&pageName=8b6051beb05050706ed7)
+2. Data Extraction Strategy (Keepa & Rainforest)
+3. Transform Raw JSON files & Load to snowflake Bronze Layer Schema
+4. Data Cleaning – Key Issues (Silver Layer clean up)
+5. Data Modeling
+6. Power BI Dashboard Overview
 
 ---
 
