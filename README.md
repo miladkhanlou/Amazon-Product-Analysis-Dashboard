@@ -10,7 +10,7 @@
 
 ---
 
-## Data Extraction Strategy (Keepa & Rainforest)
+# Data Extraction Strategy (Keepa & Rainforest)
 ### Overall Extraction Approach
 This project uses **two complementary data sources** to build a complete and reliable view of Amazon products, sellers, pricing, and sales behavior:
 
@@ -301,7 +301,7 @@ This project uses **two complementary data sources** to build a complete and rel
 
 ---
 
-## Transform Raw JSON files & Load to snowflake Bronze Layer Schema
+# Transform Raw JSON files & Load to snowflake Bronze Layer Schema
 
 - Convert **raw JSON → structured tables**
 - Load into the **warehouse for analytics**
@@ -312,7 +312,7 @@ This project uses **two complementary data sources** to build a complete and rel
 
 ---
 
-## Data Cleaning – Key Issues (Silver Layer clean up)
+# Data Cleaning – Key Issues (Silver Layer clean up)
 
 1. **Main Data Cleaning:**
 
@@ -337,7 +337,7 @@ This project uses **two complementary data sources** to build a complete and rel
    - Seller-level analytics are accurate
    - Power BI dashboards reflect true marketplace structure
 
-
+---
 
 # Data Modeling
 
