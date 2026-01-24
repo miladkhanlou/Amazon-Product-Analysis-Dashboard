@@ -1,4 +1,5 @@
 # [Amazon Product, Seller and Price Analysis Pipeline](https://app.powerbi.com/view?r=eyJrIjoiMWY3Zjc4MWEtZTRhZC00NDJjLTljZjktMDU5ZjE5MjRhMDliIiwidCI6ImM3Y2EzYjc2LWVkYmUtNGYyNi1iZTljLTgzOWM2MjQ5ZDZiYiJ9&pageName=8b6051beb05050706ed7)
+<img width="1694" height="1092" alt="Screenshot 2026-01-24 at 12 38 59 AM" src="https://github.com/user-attachments/assets/8ddfb834-cc9c-49cb-aad9-5543cb798424" />
 
 # Project Overview:
 1. [Link to Popwer BI Dashboard for this project](https://app.powerbi.com/view?r=eyJrIjoiMWY3Zjc4MWEtZTRhZC00NDJjLTljZjktMDU5ZjE5MjRhMDliIiwidCI6ImM3Y2EzYjc2LWVkYmUtNGYyNi1iZTljLTgzOWM2MjQ5ZDZiYiJ9&pageName=8b6051beb05050706ed7)
